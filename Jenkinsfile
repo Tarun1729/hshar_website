@@ -2,7 +2,7 @@ pipeline {
     agent any
 
      environment{
-       registryCredential = 'ecr:<zone>:tarun1729'
+       registryCredential = 'ecr:<zone>:202051122'
        appRegistry = "277271872715.dkr.ecr.ap-northeast-1.amazonaws.com/capstoneproject"
        capstoneRegistry = "https://277271872715.dkr.ecr.ap-northeast-1.amazonaws.com"
        cluster = "capstone"
@@ -47,7 +47,7 @@ pipeline {
                 branch "master"
          }
          steps{
-            withAWS(credentials: 'tarun1729', region: 'ap-northeast-1'){
+            withAWS(credentials: '202051122', region: 'ap-northeast-1'){
                 sh 'aws ecs update-service --cluster ${cluster} --service ${service} --force-new-deployment'
             }
          }
